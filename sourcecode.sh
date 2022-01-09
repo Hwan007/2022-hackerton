@@ -46,7 +46,7 @@ fi
 read -p "Press enter when you're ready to record" rec
 if [ -z $rec ]; then
 #  rec -q --channels=1 --bits=16 --rate=16000 audio.wav trim 0 2
-  arecord -t raw -c 1 -f S16)LE -d 2 -r 16000 audio.wav
+  arecord -t raw -c 1 -f S16_LE -d 2 -r 16000 audio.wav
   echo \"`base64 --wrap=0 audio.wav`\" > audio.base64
   sed -i -e '/"content":/r audio.base64' $FILENAME
 fi
